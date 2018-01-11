@@ -20,9 +20,10 @@
 
 		<button v-on:click="subtract(1)">Make younger</button>
 		<button v-on:click="add(1)">Make older</button>
-		<button @dblclick="subtract(10)">Make younger by 10</button>
+		<button v-on:dblclick.once="subtract(10)">Make younger by 10</button>
 		<button @dblclick="add(10)">Make older by 10</button>
 		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+		<a v-on:click.prevent="preventer" href="https://www.instagram.com/explore/tags/foxiberta/">prevent</a>
 	</div>
 
 	<script src="app.js"></script>
