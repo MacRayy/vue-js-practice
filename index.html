@@ -24,6 +24,10 @@
 		<button @dblclick="add(10)">Make older by 10</button>
 		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
 		<a v-on:click.prevent="preventer" href="https://www.instagram.com/explore/tags/foxiberta/">prevent</a>
+
+		<label>Name</label>
+		<input type="text" v-model="inputName" v-on:keyup.enter="logAlma">
+		<span>{{ inputName }}</span>
 	</div>
 
 	<script src="app.js"></script>

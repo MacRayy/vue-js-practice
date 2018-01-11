@@ -8,7 +8,8 @@ new Vue ({
 		instaTag: '<a href="https://www.instagram.com/explore/tags/foxiberta/">FoxiBerta insta</a>',
 		age: 1,
 		x: 0,
-		y: 0
+		y: 0,
+		inputName: ''
 	},
 
 	methods: {
@@ -31,6 +32,10 @@ new Vue ({
 
 		preventer: function() {
 			alert('visit prevented')
+		},
+
+		logAlma: function() {
+			console.log('alma')
 		}
 	}
 })
