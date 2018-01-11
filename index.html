@@ -14,8 +14,15 @@
 		<p>Name: {{ name }}</p>
 		<p>Job: {{ job }}</p>
 		<a v-bind:href="insta">FoxiBerta</a>
-		<input type="text" name="" value="" v-bind:placeholder="name">
+		<input type="text" name="" value="" :placeholder="name">
 		<p v-html="instaTag"></p>
+		<p>{{ name }} is {{ age }} old</p>
+
+		<button v-on:click="subtract(1)">Make younger</button>
+		<button v-on:click="add(1)">Make older</button>
+		<button @dblclick="subtract(10)">Make younger by 10</button>
+		<button @dblclick="add(10)">Make older by 10</button>
+		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
 	</div>
 
 	<script src="app.js"></script>
