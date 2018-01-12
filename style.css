@@ -1,23 +1,27 @@
-#canvas {
-	border: 1px solid #333;
-	padding: 200px 20px;
-	text-align: center;
-	width: 300px;
+#bag{
+  background-size: 80%;
+  background: url(/img/bag.png) center no-repeat;
+  height: 500px;
+  margin: 0 auto;
+  width: 200px;
 }
 
-span{
-  background: red;
-  display: inline-block;
-  padding: 10px;
-  color: #fff;
-  margin: 10px 0;
+#bag.burst{
+    background-image: url(/img/bag-burst.png);
 }
 
-.available span{
-  background: green;
+#bag-health{
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+  width: 200px;
 }
 
-.nearby span:after{
-  content: "nearby";
-  margin-left: 10px;
+#bag-health div{
+  background: crimson;
+  height: 20px;
+}
+
+#controls{
+  margin: 0 auto;
+  width: 120px;
 }

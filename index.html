@@ -10,71 +10,15 @@
 </head>
 <body>
 	<div id="vue-app">
-		<h1>{{ greet('afternoon') }}</h1>
-		<p>Name: {{ name }}</p>
-		<p>Job: {{ job }}</p>
-		<a v-bind:href="insta">FoxiBerta</a>
-		<input type="text" name="" value="" :placeholder="name">
-		<p v-html="instaTag"></p>
-		<p>{{ name }} is {{ age }} old</p>
+		<div id="bag" v-bind:class="{burst: ended}"></div>
 
-		<button v-on:click="subtract(1)">Make younger</button>
-		<button v-on:click="add(1)">Make older</button>
-		<button v-on:dblclick.once="subtract(10)">Make younger by 10</button>
-		<button @dblclick="add(10)">Make older by 10</button>
-		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
-		<a v-on:click.prevent="preventer" href="https://www.instagram.com/explore/tags/foxiberta/">prevent</a>
-
-		<div>
-			<label>Name</label>
-			<input type="text" v-model="inputName" v-on:keyup.enter="logAlma">
-			<span>{{ inputName }}</span>
+		<div id="bag-health">
+			<div v-bind:style="{width: health + '%'}"></div>
 		</div>
 
-		<div>
-			<button v-on:click="a++">Add to A</button>
-			<button v-on:click="b++">Add to B</button>
-			<p>A = {{a}}</p>
-			<p>A = {{b}}</p>
-			<p>Age + A = {{ addToA }}</p>
-			<p>Age + B = {{ addToB }}</p>
-		</div>
-
-		<div v-on:click="available = !available" v-bind:class="{available: available}">
-			<span>MacRay</span>
-		</div>
-
-		<div>
-			<button v-on:click="available = !available">Toggle available</button>
-			<button v-on:click="nearby = !nearby">Toggle nearby</button>
-			<div v-on:click="" v-bind:class="compClasses">
-				<span>MacRay</span>
-			</div>
-		</div>
-
-		<div>
-			<button v-on:click="error = !error">toggle error</button>
-			<button v-on:click="success = !success">toggle success</button>
-			<p v-if="error">Error</p>
-			<p v-else-if="success">Success</p>
-			<p v-show="error">Error</p>
-			<p v-show="success">Success</p>
-		</div>
-
-		<div>
-			<h3>characters</h3>
-			<ul>
-				<li v-for="character in characters">{{character}}</li>
-			</ul>
-			<h3>jedi masters</h3>
-			<template v-for="(jedi, index) in jedis">
-		  	<p>{{index + 1}}. {{jedi.name}} has {{jedi.color}} lightsabre</p>
-			</template>
-			<template v-for="jedi in jedis">
-				<div v-for="(val, key) in jedi">
-					<p>{{key}} - {{val}}</p>
-				</div>
-			</template>
+		<div id="controls">
+			<button v-on:click="punch" v-show="!ended">Punch</button>
+			<button v-on:click="restart">Restart</button>
 		</div>
 
 	</div>
