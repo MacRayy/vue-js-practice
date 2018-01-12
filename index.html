@@ -25,25 +25,56 @@
 		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
 		<a v-on:click.prevent="preventer" href="https://www.instagram.com/explore/tags/foxiberta/">prevent</a>
 
-		<label>Name</label>
-		<input type="text" v-model="inputName" v-on:keyup.enter="logAlma">
-		<span>{{ inputName }}</span>
+		<div>
+			<label>Name</label>
+			<input type="text" v-model="inputName" v-on:keyup.enter="logAlma">
+			<span>{{ inputName }}</span>
+		</div>
 
-		<button v-on:click="a++">Add to A</button>
-		<button v-on:click="b++">Add to B</button>
-		<p>A = {{a}}</p>
-		<p>A = {{b}}</p>
-		<p>Age + A = {{ addToA }}</p>
-		<p>Age + B = {{ addToB }}</p>
+		<div>
+			<button v-on:click="a++">Add to A</button>
+			<button v-on:click="b++">Add to B</button>
+			<p>A = {{a}}</p>
+			<p>A = {{b}}</p>
+			<p>Age + A = {{ addToA }}</p>
+			<p>Age + B = {{ addToB }}</p>
+		</div>
 
 		<div v-on:click="available = !available" v-bind:class="{available: available}">
 			<span>MacRay</span>
 		</div>
 
-		<button v-on:click="available = !available">Toggle available</button>
-		<button v-on:click="nearby = !nearby">Toggle nearby</button>
-		<div v-on:click="" v-bind:class="compClasses">
-			<span>MacRay</span>
+		<div>
+			<button v-on:click="available = !available">Toggle available</button>
+			<button v-on:click="nearby = !nearby">Toggle nearby</button>
+			<div v-on:click="" v-bind:class="compClasses">
+				<span>MacRay</span>
+			</div>
+		</div>
+
+		<div>
+			<button v-on:click="error = !error">toggle error</button>
+			<button v-on:click="success = !success">toggle success</button>
+			<p v-if="error">Error</p>
+			<p v-else-if="success">Success</p>
+			<p v-show="error">Error</p>
+			<p v-show="success">Success</p>
+		</div>
+
+		<div>
+			<h3>characters</h3>
+			<ul>
+				<li v-for="character in characters">{{character}}</li>
+			</ul>
+			<h3>jedi masters</h3>
+			<template v-for="(jedi, index) in jedis">
+		  	<p>{{index + 1}}. {{jedi.name}} has {{jedi.color}} lightsabre</p>
+			</template>
+			<template v-for="jedi in jedis">
+				<div v-for="(val, key) in jedi">
+					<p>{{key}} - {{val}}</p>
+				</div>
+			</template>
 		</div>
 
 	</div>

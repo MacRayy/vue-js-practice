@@ -13,7 +13,15 @@ new Vue ({
 		a: 0,
 		b: 0,
 		available: false,
-		nearby: false
+		nearby: false,
+		error: false,
+		success: false,
+		characters: ['mario', 'luigi', 'wario', 'link'],
+		jedis: [
+			{name: 'obi-wan', color: 'blue'},
+			{name: 'luke skywlaker', color: 'green'},
+			{name: 'yoda', color: 'green'}
+		]
 	},
 
 	methods: {
