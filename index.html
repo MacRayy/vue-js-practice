@@ -36,6 +36,16 @@
 		<p>Age + A = {{ addToA }}</p>
 		<p>Age + B = {{ addToB }}</p>
 
+		<div v-on:click="available = !available" v-bind:class="{available: available}">
+			<span>MacRay</span>
+		</div>
+
+		<button v-on:click="available = !available">Toggle available</button>
+		<button v-on:click="nearby = !nearby">Toggle nearby</button>
+		<div v-on:click="" v-bind:class="compClasses">
+			<span>MacRay</span>
+		</div>
+
 	</div>
 
 	<script src="app.js"></script>

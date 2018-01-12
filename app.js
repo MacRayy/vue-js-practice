@@ -11,7 +11,9 @@ new Vue ({
 		y: 0,
 		inputName: '',
 		a: 0,
-		b: 0
+		b: 0,
+		available: false,
+		nearby: false
 	},
 
 	methods: {
@@ -43,13 +45,20 @@ new Vue ({
 
 	computed: {
 		addToA: function() {
-			console.log('alma')
+			console.log('auto')
 			return this.age + this.a
 		},
 
 		addToB: function() {
 			console.log('banan')
 			return this.age + this.b
+		},
+
+		compClasses: function() {
+			return {
+				available: this.available,
+				nearby: this.nearby
+			}
 		}
 	}
 })
