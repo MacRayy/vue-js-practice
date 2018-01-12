@@ -9,7 +9,9 @@ new Vue ({
 		age: 1,
 		x: 0,
 		y: 0,
-		inputName: ''
+		inputName: '',
+		a: 0,
+		b: 0
 	},
 
 	methods: {
@@ -36,6 +38,18 @@ new Vue ({
 
 		logAlma: function() {
 			console.log('alma')
+		}
+	},
+
+	computed: {
+		addToA: function() {
+			console.log('alma')
+			return this.age + this.a
+		},
+
+		addToB: function() {
+			console.log('banan')
+			return this.age + this.b
 		}
 	}
 })
