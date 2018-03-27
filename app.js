@@ -1,7 +1,24 @@
-new Vue ({
+Vue.component ('greeting', {
+	template: '<h3>Hello there, I am {{name}}. <button v-on:click="changeName">Change name</button> </h3>',
+
+	data: function() {
+		return {
+			name: 'Obi-Wan'
+		}
+	},
+
+	methods: {
+		changeName: function() {
+			this.name = 'Old Ben'
+		}
+	}
+})
+
+const one = new Vue ({
 	el: '#vue-app',
 
 	data: {
+		title: 'vue app one',
 		name: 'Berta',
 		job: 'Dog',
 		insta: 'https://www.instagram.com/explore/tags/foxiberta/',
@@ -16,9 +33,9 @@ new Vue ({
 		nearby: false,
 		error: false,
 		success: false,
-		characters: ['mario', 'luigi', 'wario', 'link'],
+		characters: ['mario', 'luigi', 'wario', 'link', 'kirby'],
 		jedis: [
-			{name: 'obi-wan', color: 'blue'},
+			{name: 'obi-wan kenobi', color: 'blue'},
 			{name: 'luke skywlaker', color: 'green'},
 			{name: 'yoda', color: 'green'}
 		]
@@ -68,5 +85,21 @@ new Vue ({
 				nearby: this.nearby
 			}
 		}
+	}
+})
+
+const two = new Vue ({
+	el: '#vue-app-two',
+
+	data: {
+		title: 'vue app two',
+	},
+
+	methods: {
+
+	},
+
+	computed: {
+
 	}
 })
