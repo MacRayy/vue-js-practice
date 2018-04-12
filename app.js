@@ -1,14 +1,14 @@
 Vue.component ('greeting', {
 	template: '<h3>Hello there, I am {{name}}. <button v-on:click="changeName">Change name</button> </h3>',
 
-	data: function() {
+	data: () => {
 		return {
 			name: 'Obi-Wan'
 		}
 	},
 
 	methods: {
-		changeName: function() {
+		changeName() {
 			this.name = 'Old Ben'
 		}
 	}
@@ -38,15 +38,16 @@ const one = new Vue ({
 			{name: 'obi-wan kenobi', color: 'blue'},
 			{name: 'luke skywlaker', color: 'green'},
 			{name: 'yoda', color: 'green'}
-		]
+		],
+		favFood: 'fooood'
 	},
 
 	methods: {
-		greet: function(time) {
+		greet(time){
 			return 'woof ' + time + ' ' + this.name
 		},
 
-		add: function(dec) {
+		add(dec) {
 			this.age += dec
 		},
 
@@ -65,11 +66,17 @@ const one = new Vue ({
 
 		logAlma: function() {
 			console.log('alma')
+		},
+
+		readRefs(){
+			console.log(this.$refs)
+			console.log(this.$refs.input.value)
+			this.favFood = this.$refs.input.value
 		}
 	},
 
 	computed: {
-		addToA: function() {
+		addToA() {
 			console.log('auto')
 			return this.age + this.a
 		},
