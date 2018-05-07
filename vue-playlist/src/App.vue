@@ -1,35 +1,37 @@
 <template>
-  <div id="app">
-    <h1>{{title}}</h1>
-    <jedi></jedi>
-  </div>
+	<div>
+		<app-header></app-header>
+		<ninjas></ninjas>
+		<app-footer></app-footer>
+	</div>
 </template>
 
 <script>
-
-//Register component LOCALY
-import Jedi from './Jedi.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import Ninjas from './components/Ninjas.vue'
 
 export default {
-  components: {
-    'jedi': Jedi
-  },
+	components: {
+		'app-header': Header,
+		'app-footer': Footer,
+		'ninjas': Ninjas
+	},
 
-  data () {
-    return {
-      title: 'Jedi App'
-    }
-  }
+	data () {
+		return {
+
+		}
+	}
 }
 </script>
 
 <style lang="scss">
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
-
 </style>
