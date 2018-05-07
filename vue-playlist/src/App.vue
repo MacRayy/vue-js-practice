@@ -1,21 +1,23 @@
 <template>
   <div id="app">
     <h1>{{title}}</h1>
-    <p>{{greeting()}}</p>
+    <jedi></jedi>
   </div>
 </template>
 
 <script>
+
+//Register component LOCALY
+import Jedi from './Jedi.vue'
+
 export default {
-  data () {
-    return {
-      title: 'first vue file'
-    }
+  components: {
+    'jedi': Jedi
   },
 
-  methods: {
-    greeting() {
-      return 'hello there!'
+  data () {
+    return {
+      title: 'Jedi App'
     }
   }
 }
