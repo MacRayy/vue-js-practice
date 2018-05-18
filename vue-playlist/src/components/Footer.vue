@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
 	props: {
 		title: {
@@ -16,6 +18,10 @@ export default {
 		return {
 			copyright: 'Copyright 2018 '
 		}
+	},
+
+	created() {
+		eventBus.$on('titleChanged', data => this.title = data)
 	}
 }
 </script>

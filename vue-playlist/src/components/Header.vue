@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
 	props: {
 		title: {
@@ -20,8 +22,10 @@ export default {
 
 	methods: {
 		changeTitle () {
-			// this.title = 'Vue Wizards'
-			this.$emit('changeTitle', 'Vue Wizards')
+			// this.title = 'Vue Wizards' - change title locally
+			// this.$emit('changeTitle', 'Vue Wizards') - change title in the root component and rerender everywhere
+			this.title = 'Vue Wizards'
+			eventBus.$emit('titleChanged', 'Vue Wizards ')
 		}
 	}
 }

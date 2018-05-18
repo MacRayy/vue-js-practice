@@ -5,6 +5,8 @@ import App from './App.vue'
 // import Jedi from './Jedi.vue'
 // Vue.component('jedi', Jedi)
 
+export const eventBus = new Vue()
+
 new Vue({
 	el: '#app',
 	render: h => h(App)
