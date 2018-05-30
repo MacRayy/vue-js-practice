@@ -17,6 +17,13 @@
 			</div>
 		</form-helper>
 
+		<!-- keep-alive keeps the data even if you change the rendered component -->
+		<keep-alive>
+			<component v-bind:is="component"></component>
+		</keep-alive>
+		<button v-on:click="component = 'comp-one'">show first</button>
+		<button v-on:click="component = 'comp-two'">show second</button>
+
 		<app-footer v-bind:title="title"></app-footer>
 	</div>
 </template>
@@ -26,13 +33,17 @@ import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Ninjas from './components/Ninjas.vue'
 import formHelper from './components/FormHelper.vue'
+import componentOne from './components/componentOne.vue'
+import componentTwo from './components/componentTwo.vue'
 
 export default {
 	components: {
 		'app-header': Header,
 		'app-footer': Footer,
 		'app-ninjas': Ninjas,
-		'form-helper': formHelper
+		'form-helper': formHelper,
+		'comp-one': componentOne,
+		'comp-two': componentTwo
 	},
 
 	data () {
@@ -45,7 +56,8 @@ export default {
 				{name: 'Kami', speciality: 'Webpack', show: false},
 				{name: 'Yoshi', speciality: 'Data Diggin', show: false}
 			],
-			title: 'Vue Ninjas'
+			title: 'Vue Ninjas',
+			component: 'comp-one'
 		}
 	},
 
