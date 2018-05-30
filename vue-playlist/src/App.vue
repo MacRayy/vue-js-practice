@@ -24,6 +24,8 @@
 		<button v-on:click="component = 'comp-one'">show first</button>
 		<button v-on:click="component = 'comp-two'">show second</button>
 
+		<add-blog></add-blog>
+
 		<app-footer v-bind:title="title"></app-footer>
 	</div>
 </template>
@@ -35,6 +37,7 @@ import Ninjas from './components/Ninjas.vue'
 import formHelper from './components/FormHelper.vue'
 import componentOne from './components/componentOne.vue'
 import componentTwo from './components/componentTwo.vue'
+import addBlog from './components/addBlog.vue'
 
 export default {
 	components: {
@@ -43,7 +46,8 @@ export default {
 		'app-ninjas': Ninjas,
 		'form-helper': formHelper,
 		'comp-one': componentOne,
-		'comp-two': componentTwo
+		'comp-two': componentTwo,
+		'add-blog': addBlog,
 	},
 
 	data () {
