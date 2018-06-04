@@ -7,13 +7,7 @@ import App from './App.vue'
 
 export const eventBus = new Vue()
 
-//custom directives
-Vue.directive('rainbow', {
-	bind(el, binding, vnode) {
-		el.style.color = `#${Math.random().toString().slice(2, 8)}`
-	}
-})
-
+//custom directives globally
 Vue.directive('theme', {
 	bind(el, binding, vnode) {
 		if (binding.value === 'wide') {
@@ -28,9 +22,7 @@ Vue.directive('theme', {
 	}
 })
 
-//filters
-Vue.filter('to-uppercase', value => value.toUpperCase())
-
+//filters globally
 Vue.filter('snippet', value => `${value.slice(0, 100)}...`)
 
 new Vue({

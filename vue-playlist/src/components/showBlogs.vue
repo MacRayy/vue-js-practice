@@ -35,6 +35,21 @@ export default {
 		fetch('https://jsonplaceholder.typicode.com/posts')
 			.then(response => response.json())
 			.then(data => this.blogs = data.slice(0, 10))
+	},
+
+	// filters & directives locally
+	filters: {
+		toUppercase(value) {
+			return value.toUpperCase()
+		}
+	},
+
+	directives: {
+		'rainbow': {
+			bind(el, binding, vnode) {
+				el.style.color = `#${Math.random().toString().slice(2, 8)}`
+			}
+		}
 	}
 }
 </script>
