@@ -1,7 +1,7 @@
 <template>
 	<section id="add-blog">
 		<h2>Add new blog</h2>
-		<form>
+		<form v-if="!submitted">
 			<label>Blog title:</label>
 			<input type="text" required v-model.lazy="blog.title">
 			<label>Blog content:</label>
@@ -18,7 +18,12 @@
 			<select v-model="blog.author">
 				<option v-for="author in authors">{{author}}</option>
 			</select>
+			<button v-on:click.prevent="post">Add blog</button>
 		</form>
+
+		<div v-if="submitted">
+			Thanks for adding your post
+		</div>
 
 		<div id="preview">
 			<h3>Preview blog</h3>
@@ -45,7 +50,30 @@ export default {
 				categories: [],
 				author: ''
 			},
-			authors: ['Mario', 'Zelda', 'NetNinja']
+			authors: ['Mario', 'Zelda', 'NetNinja'],
+			submitted: false
+		}
+	},
+
+	methods: {
+		post() {
+			const data = {
+				title: this.blog.title,
+				body: this.blog.content,
+				userid: 1
+			}
+			fetch('https://jsonplaceholder.typicode.com/posts', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then(response => response.json())
+				.then(json => {
+					this.submitted = true
+					console.log(json)
+				})
 		}
 	}
 }
@@ -53,34 +81,34 @@ export default {
 
 <style scoped lang="scss">
 #add-blog *{
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 #add-blog{
-  margin: 20px auto;
-  max-width: 500px;
+	margin: 20px auto;
+	max-width: 500px;
 }
 label{
-  display: block;
-  margin: 20px 0 10px;
+	display: block;
+	margin: 20px 0 10px;
 }
 input[type="text"], textarea{
-  display: block;
-  width: 100%;
-  padding: 8px;
+	display: block;
+	width: 100%;
+	padding: 8px;
 }
 #preview{
-  padding: 10px 20px;
-  border: 1px dotted #ccc;
-  margin: 30px 0;
+	padding: 10px 20px;
+	border: 1px dotted #ccc;
+	margin: 30px 0;
 }
 h3{
-  margin-top: 10px;
+	margin-top: 10px;
 }
 #checkboxes input{
-  display: inline-block;
-  margin-right: 10px;
+	display: inline-block;
+	margin-right: 10px;
 }
 #checkboxes label{
-  display: inline-block;
+	display: inline-block;
 }
 </style>
