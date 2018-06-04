@@ -1,8 +1,9 @@
 <template>
 	<section id="show-blogs" v-theme:column="'narrow'">
 		<h2>All blog articles</h2>
-		<div class="single-blog" v-for="blog in blogs">
-			<h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
+		<input type="text" v-model="search" placeholder="search blogs">
+		<div class="single-blog" v-for="blog in filteredBlogs">
+			<h3 v-rainbow>{{blog.title | to-uppercase}}</h3>
 			<article>
 				{{blog.body | snippet}}
 			</article>
@@ -15,13 +16,18 @@
 export default {
 	data() {
 		return {
-			blogs: ['dsa', 'aaa']
+			blogs: [],
+			search: ''
 		}
 	},
 
 	methods: {
-		get() {
 
+	},
+
+	computed: {
+		filteredBlogs() {
+			return this.blogs.filter(blog => blog.title.match(this.search))
 		}
 	},
 
