@@ -26,6 +26,8 @@
 
 		<add-blog></add-blog>
 
+		<show-blogs></show-blogs>
+
 		<app-footer v-bind:title="title"></app-footer>
 	</div>
 </template>
@@ -38,6 +40,7 @@ import formHelper from './components/FormHelper.vue'
 import componentOne from './components/componentOne.vue'
 import componentTwo from './components/componentTwo.vue'
 import addBlog from './components/addBlog.vue'
+import showBlogs from './components/showBlogs.vue'
 
 export default {
 	components: {
@@ -48,6 +51,7 @@ export default {
 		'comp-one': componentOne,
 		'comp-two': componentTwo,
 		'add-blog': addBlog,
+		'show-blogs': showBlogs
 	},
 
 	data () {
