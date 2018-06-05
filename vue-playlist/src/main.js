@@ -6,7 +6,9 @@ import Routes from './routes'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-	routes: Routes
+	routes: Routes,
+	// mode: 'hash' // it is the default routing mode
+	mode: 'history'
 })
 
 // Register component GLOBALY
