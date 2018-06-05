@@ -24,9 +24,7 @@
 		<button v-on:click="component = 'comp-one'">show first</button>
 		<button v-on:click="component = 'comp-two'">show second</button>
 
-		<add-blog></add-blog>
-
-		<show-blogs></show-blogs>
+		<router-view></router-view>
 
 		<app-footer v-bind:title="title"></app-footer>
 	</div>
